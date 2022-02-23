@@ -1,0 +1,60 @@
+/***********************************************************************/
+/*********** HOME PAGE / FRONT PAGE ************************************/
+/***********************************************************************/
+
+// ** LESS STYLING EXAMPLES ** [Delete when beginning project] -----------------------------------------------
+// See variables.less, mixins.less, typography.less, ui.less for global less styles. Adjust these files first so you can use them throughout your content styles
+
+#home-splash { // Name each section using a unique id. This makes it easier to target elements. Format can follow #[page-name]-[section-name]
+
+    // A SPLASH is the first section seen on a page.
+
+    .full-page(); // Makes this section fill the screen height and width. Will stretch if content is larger than screen height.
+    .splash-padding(); // Used for a splash. Adds extra top padding that matches the header (nav bar). So splash content does not go under the header.
+    background: @white;
+    text-align: center;
+}
+
+#home-animation-example {
+    .full-width(); // Full width & auto height
+    .section-padding(); // Adds top and bottom padding that matches each section
+    background: @primary-color; // Primary color
+    color: @secondary-color; // Secondary color
+
+    i, svg { // Targets the fontawesome icons. Could also target .fa
+        .font-size(80); // Sets font size ie. 80px
+    }
+}
+
+#home-spacing-example {
+    .full-width();
+    .section-padding();
+    .flex-row(); // Flex-box helper mix. Flex all children in a row and centers by default. Set your justify-contents as the parameter. see mixins.less
+    // Need help with flex-box? https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+    div {
+        display: block;
+        width: 200px;
+        background: @accent-color;
+        height: @baseline*4; // @baseline is 20px it will match the horizontal rows found in the design
+        .border-radius(); // Applies the default border radius
+        .box-shadow(); // Applies a box-shadow
+        .transition(); // Applies a transition. transition: all 300ms ease-in-out; Used when this elements has a hover or will have its styles changed
+        text-align: center;
+        .flex-column(); // Flex-box helper mix. Flex all children in a column and centers by default.
+        color: @white;
+
+        &:not(:last-of-type) { // Great way to add margin to a collection/list of elements and not apply to last element
+            margin-right: @bl; // @bl is shorthand for @baseline
+        }
+
+        &:hover {
+            .box-shadow-secondary();
+            background: @primary-color;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}
+
+// LESS STYLING EXAMPLES ends -------------------------------------------

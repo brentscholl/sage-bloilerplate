@@ -1,0 +1,89 @@
+/***********************************************************************/
+/********** FORMS ******************************************************/
+/***********************************************************************/
+textarea, input, button { outline: none !important; }
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder { /* Chrome/Opera/Safari */
+    color: @input-placeholder-color; // edit variable.less
+}
+
+/* Labels */
+label {
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+label.required:after {
+    content: "*";
+    color: @red-light;
+    position: absolute;
+    padding-top: 2px;
+    padding-left: 2px;
+    .font-size(11);
+}
+
+/* Textarea */
+textarea {
+    overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
+    vertical-align: top; /* Improves readability and alignment in all browsers */
+    height: @baseline*8;
+    max-height: 900px;
+    width: 100%;
+    max-width: 100%;
+    background-color: @white;
+    color: @text-color-dark;
+    border: 1px solid @primary-color;
+    .font-size(16);
+    padding: 15px;
+    line-height: @baseline;
+    margin-bottom: @baseline;
+
+    &:focus {
+        background: @white;
+        color: @primary-color;
+    }
+
+}
+
+/* Form Inputs */
+input, select {
+    width: 100%;
+    height: @baseline*2;
+    line-height: @baseline*2;
+    padding: 0px 15px;
+    text-align: left;
+    .transition();
+    border: 1px solid @primary-color;
+    background-color: @white;
+    color: @text-color-dark;
+    .font-size(16);
+    margin-bottom: @baseline;
+
+    &:focus {
+        background: @white;
+        color: @primary-color;
+    }
+}
+
+/* Form Inputs */
+.form-group {
+    margin-bottom: @bl;
+}
+
+.form-check {
+    padding-left: 30px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    height: 20px;
+    width: 20px;
+    margin-left: -30px;
+    margin-top: 0px;
+}
+
+input[type="file"] {
+    padding: 5px;
+    height: auto;
+    line-height: 22px;
+}

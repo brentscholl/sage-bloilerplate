@@ -1,0 +1,304 @@
+/***********************************************************************/
+/* HEADER
+/*
+/* Header styles. Main Nav etc
+/***********************************************************************/
+
+/********** MAIN MENU / MAIN NAV / MAIN HEADER **********************************************************/
+//noinspection LessResolvedByNameOnly
+#header {
+    width: 100%;
+    z-index: 999;
+
+    .current-menu-parent > a:before, .home.current-page-ancestor > a:before {
+        //left: 0 !important;
+        //right: 0 !important;
+    }
+
+    // Top Level Nav Link is being viewed
+    // |*HOME*| ABOUT | SERVICES +| CONTACT
+    .current_page_item > a {
+        //border-bottom: 2px solid @white;
+        //margin-top: -2px !important;
+        //padding-top: 3px;
+        //line-height: 37px;
+    }
+
+    // Main nav link has a sub page that is being viewed
+    // | HOME | ABOUT |*SERVICES +*| CONTACT
+    .current-page-ancestor > a {
+        //border-bottom: 2px solid @white;
+        //margin-top: -2px !important;
+    }
+
+    // Sub page is being viewed
+    // | HOME | ABOUT | SERVICES +| CONTACT
+    //               |    *-SUB* |
+    //              + --------- +
+    .sub-menu .current_page_item a:first-of-type {
+        //border-bottom: none !important;
+        //background: fade(@white, 10%);
+        //opacity: 1;
+    }
+}
+
+/********************************************************************************************************/
+/********** MENU **************************************************************************************/
+/****************************************************************************************************/
+// MAIN MENU (Menu before scroll) PRIMARY ===========================================================
+.header {
+    z-index: 10;
+    margin-top: 0px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: @header-height; // edit variable.less
+    width: 100%;
+    background: @text-color-dark;
+    .box-shadow();
+    .flex-row(space-between);
+    .transition();
+
+    /* Branding (ie. Logo) */
+
+    .header__site-branding {
+        width: auto;
+        text-align: left;
+        position: relative;
+        z-index: 900;
+        height: @header-height; // edit variable.less
+        .flex-column();
+
+        img {
+            .full-height();
+            object-fit: contain;
+        }
+    }
+
+    /* Site Menu */
+
+    .header__site-menu {
+        line-height: 1;
+        transition: @easing;
+        width: 100%;
+
+        /* Main Menus / Upper-most Menu Links */
+
+        #main-menu {
+            .flex-row(flex-end);
+            width: 100%;
+            position: relative;
+            list-style-type: none;
+
+            a { // Default Nav link <a>
+                display: block;
+                .font-size(14);
+                cursor: pointer;
+                color: @primary-color;
+
+                &:hover {
+                    color: @secondary-color;
+                }
+            }
+
+            & > li { // Default Nav link <li>
+                display: inline-block; // Set list to inline-block for horizontal menu
+                text-align: center;
+                position: relative;
+                line-height: @header-height; // edit variables.less. This line height is what makes the submenu show below the navbar.
+
+                // Add space to the nav items, except for last one
+                &:not(:last-of-type) {
+                    margin-right: @baseline*2;
+                }
+
+                // Style the Nav items with sub menus
+                &.menu-item-has-children > a {
+                    &:after {
+                        .fa-chevron-down();
+                        font-family: @font-awesome;
+                        margin-left: 10px;
+                    }
+                }
+
+                & > a {
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: @primary-color;
+                }
+
+                &:hover {
+                    color: @secondary-color;
+                }
+
+                /**** SUB MENU ****/
+                /* Show Sub menu on Parent Hover */
+
+                &:hover > ul.sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                /* Sub Menu Styles */
+
+                ul.sub-menu {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+                    flex-direction: column;
+                    display: flex;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0px;
+                    width: 100%;
+                    min-width: 200px; // Min width of the sub-nav
+                    line-height: @baseline;
+                    margin-top: 0px;
+                    padding: 20px 0;
+                    color: @secondary-color;
+                    background: @text-color-light;
+                    .box-shadow();
+                    text-align: right;
+                    list-style-type: none;
+
+                    li {
+                        transition: @easing;
+
+                        a {
+                            display: block;
+                            padding: 10px 20px 14px 20px;
+                            line-height: 1em;
+                            text-transform: capitalize;
+                            transition: @easing;
+                            color: @primary-color;
+
+                            &:hover {
+                                color: @secondary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // For the mobile nav Button
+    .header__site-nav-button-container {
+        text-align: right;
+        padding-top: 0px;
+        height: 100%;
+
+        .btn-nav, .btn-nav:visited {
+            background: @white;
+            .border-radius();
+            color: @white;
+            .font-size(18);
+            height: @baseline*2;
+            line-height: @baseline*2;
+        }
+
+        .btn--nav:hover, .btn--nav:active {
+
+            .hamburger.is-active .hamburger-inner,
+            .hamburger.is-active .hamburger-inner::before,
+            .hamburger.is-active .hamburger-inner::after,
+            .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+                background-color: @white;
+            }
+        }
+
+        .btn--nav:focus {outline: 0;}
+
+        // Arrow
+        .btn--nav:not(.is-active):hover .hamburger-inner::before {
+            width: 30px;
+            top: -7px;
+            transform: translate3d(-8px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+
+        .btn--nav:not(.is-active):hover .hamburger-inner::after {
+            width: 30px;
+            top: 7px;
+            transform: translate3d(-8px, 0, 0) rotate(45deg) scale(0.7, 1); }
+    }
+}
+
+// Secondary Header Overrides (After Scroll) ==========================================================
+.header.header--secondary {
+    position: fixed !important;
+    top: 0px !important;
+    padding: 10px 0px;
+
+    .header__site-branding {
+    }
+
+    .header__site-menu {
+
+        /* Main Menus / Upper-most Menu Links */
+
+        #main-menu {
+            a {
+                //color: @secondary-color;
+
+                &:hover {
+                    //color: @primary-color !important;
+                }
+            }
+
+            & > li {
+                & > a {
+                    color: @secondary-color;
+                }
+
+                &:hover {
+                    color: @primary-color !important;
+                }
+            }
+        }
+    }
+}
+
+/********************************************************************************************************/
+/********** MEGA MENU *********************************************************************************/
+/****************************************************************************************************/
+.header--mega-menu {
+    .header__site-branding {
+        width: 100px;
+    }
+
+    .header__site-nav-button-container {
+        position: absolute;
+        top: 20px;
+        right: 0;
+    }
+
+    /* Site Menu */
+    .header__site-menu {
+        height: @header-height; // edit variable.less
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        /* Main Menus / Upper-most Menu Links */
+
+        #main-menu {
+            .flex-row(center);
+            position: unset;
+
+            /* Set list to inline-block for horizontal menu */
+
+            & > li {
+                position: unset;
+
+                /**** SUB MENU ****/
+                /* Sub Menu Styles */
+
+                ul.sub-menu {
+                    flex-direction: row;
+                    justify-content: center;
+                    left: 0px;
+                }
+            }
+        }
+    }
+}

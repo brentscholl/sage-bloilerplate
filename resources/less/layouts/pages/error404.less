@@ -1,0 +1,28 @@
+/***********************************************************************/
+/*********** 404 *******************************************************/
+/***********************************************************************/
+#error404 {
+    .full-page();
+    min-height: 80vh;
+    .splash-padding();
+    .flex-column();
+    text-align: center;
+    position: relative;
+
+    .sm({
+        padding-top: 170px;
+        padding-bottom: 150px;
+    });
+
+    .error404__text-404 {
+        font-family: @font-heading;
+        .font-size(200);
+        line-height: 1;
+        color: @primary-color;
+        opacity: 0.2;
+        position: absolute;
+        bottom: -30px;
+        right: @bl*2;
+    }
+}
+

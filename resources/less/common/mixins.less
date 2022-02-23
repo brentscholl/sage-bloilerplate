@@ -1,0 +1,242 @@
+/************************************************************************
+== QUICK STYLES =========================================================
+************************************************************************/
+.font-heading() {font-family: @font-heading;}
+
+.font-text() {font-family: @font-text;}
+
+.font-btn() {font-family: @font-btn;}
+
+.weight-bold() {font-weight: @weight-bold;}
+
+.weight-normal() {font-weight: normal;}
+
+.weight-thin() {font-weight: @weight-thin;}
+
+.text-center() {text-align: center;}
+
+.text-left() {text-align: left;}
+
+.text-right() {text-align: right;}
+
+.text-uppercase() {text-transform: uppercase;}
+
+.text-capitalize() {text-transform: capitalize;}
+
+.text-normal() {text-transform: none;}
+
+/* makes ul items layout in multiple columns */
+.ul-col(@i: 2) {
+    columns: @i;
+    -webkit-columns: @i;
+    -moz-columns: @i;
+}
+
+/************************************************************************
+== MIXINS ===============================================================
+************************************************************************/
+/* Appearance (removes default style put on elements by browsers) */
+.appearance(@appearance: none) {
+    -webkit-appearance: @appearance;
+    -moz-appearance: @appearance;
+}
+
+/* Apply a background image to an element */
+.background-image(@url, @size: cover, @position: center, @repeat: no-repeat) {
+    background-image: url(@url);
+    background-size: @size;
+    background-position: @position;
+    background-repeat: @repeat;
+}
+
+/* Adapt Pixel Font Sizes To ems */
+.font-size(@font-size: 16) {
+    font-size: @font-size * 1px;
+    font-size: (@font-size / 16) * 1rem;
+}
+
+.remy(@pxval: 16) {
+    font-size: @pxval * 1px;
+    font-size: (@pxval / 16) * 1rem;
+}
+
+/* CSS Transitions effects. Apply to elements that change on hover, scroll, etc */
+.transition(@property: all, @duration: 200ms) {
+    -webkit-transition: @property @duration ease-in-out;
+    -moz-transition: @property @duration ease-in-out;
+    -ms-transition: @property @duration ease-in-out;
+    -o-transition: @property @duration ease-in-out;
+    transition: @property @duration ease-in-out;
+}
+
+/* Apply a box shadow to an element */
+.box-shadow(@distance: 4px, @blur: 4px, @opacity: 0.15) {
+    -webkit-box-shadow: 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+    -moz-box-shadow: 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+    box-shadow: 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+}
+
+.box-shadow-secondary(@distance: 2px, @blur: 10px, @opacity: 0.15) {
+    -webkit-box-shadow: 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+    -moz-box-shadow: 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+    box-shadow: 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+}
+
+/* Apply a well shadow */
+.well-shadow(@distance: 5px, @blur: 5px, @opacity: 0.2) {
+    -webkit-box-shadow: inset 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+    -moz-box-shadow: inset 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+    box-shadow: inset 0px @distance @blur 0px rgba(0, 0, 0, @opacity);
+}
+
+/* Add padding to Top and Bottom of page sections */
+.section-padding() { padding: @baseline*5 0; }
+
+/* Add extra padding to splash sections that passes the header */
+.splash-padding() { padding: @baseline*5 + @header-height 0px @baseline*5 0px; }
+
+/* Makes a section full width with auto height */
+.full-width() {
+    width: 100%;
+    height: auto;
+}
+
+/* Makes an element take up the full width and height of parent. useful. for column components. like features blog posts */
+.full-height() {
+    width: 100%;
+    height: 100%;
+}
+
+/* Makes a section full width with full page height */
+.full-page() {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Transparent background color */
+.overlay() {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Apply a text shadow */
+.text-shadow() {
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply a Border Radius */
+.border-radius(@radius: 4px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+/* Gradients */
+.gradient() {
+    // Create a gradient here https://www.colorzilla.com/gradient-editor/
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
+    background: rgb(30, 87, 153); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1); /* IE6-9 */
+}
+
+/* Flex shorthand */
+.flex-row(@justify: center, @align: center) {
+    display: flex;
+    flex-direction: row;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.flex-row-reverse(@justify: center, @align: center) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.flex-column(@justify: center, @align: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.flex-column-reverse(@justify: center, @align: center) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+/* ##########################
+breakpoints
+########################## */
+.b(desktop; @content) {
+    @media (min-width: 70em) { @content();
+    }
+}
+
+.b(laptop; @content) {
+    @media (max-width: 1350px) { @content();
+    }
+}
+
+.b(tablet; @content) {
+    @media (max-width: 1023px) { @content();
+    }
+}
+
+.b(phablet; @content) {
+    @media (min-width: 37.5em) { @content();
+    }
+}
+
+.b(mobile; @content) {
+    @media (max-width: 767px) { @content();
+    }
+}
+
+.b(tiny; @content) {
+    @media (max-width: 320px) { @content();
+    }
+}
+
+.b(mobile-menu; @content) {
+    @media (max-width: 1065.98px) { @content();
+    }
+}
+
+/* BOOTSTRAP GRID ============================================================ */
+
+.xl(@content) {
+    @media (max-width: 1399.98px) { @content();
+    }
+}
+
+// Large devices (desktops, 992px and up)
+.lg(@content) {
+    @media (max-width: 1199.98px) { @content();
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+.md(@content) {
+    @media (max-width: 991.98px) { @content();
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+.sm(@content) {
+    @media (max-width: 767.98px) { @content();
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+.xs(@content) {
+    @media (max-width: 575.98px) { @content();
+    }
+}

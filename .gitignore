@@ -1,0 +1,8 @@
+/node_modules
+/vendor
+/public
+npm-debug.log
+yarn-error.log
+.idea
+/idea
+/resources/component_library

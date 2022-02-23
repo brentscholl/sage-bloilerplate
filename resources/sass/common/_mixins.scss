@@ -1,0 +1,40 @@
+/* ##########################
+breakpoints
+########################## */
+@mixin breakpoints($point) {
+  @if $point == desktop {
+    @media (min-width: 1441px) { @content ; }
+  }
+
+  @else if $point == laptop {
+    @media (max-width: 1350px) { @content ; }
+  }
+
+  @else if $point == headerbreak {
+    @media (max-width: 1280px) { @content ; }
+  }
+
+  @else if $point == tablet {
+    @media (max-width: 1023px) { @content ; }
+  }
+
+  @else if $point == phablet {
+    @media (min-width: 37.5em) { @content ; }
+  }
+
+  @else if $point == mobile {
+    @media (max-width: 767px) { @content ; }
+  }
+
+  @else if $point == tinyphone {
+    @media (max-width: 320px) { @content ; }
+  }
+}
+
+/* ##########################
+remy fonts
+########################## */
+@mixin remy($pxval: 16) {
+  font-size: $pxval * 1px;
+  font-size: ($pxval / 16) * 1rem;
+}

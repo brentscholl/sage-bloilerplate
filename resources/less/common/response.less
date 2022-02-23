@@ -1,0 +1,98 @@
+/***********************************************************************/
+/* RESPONSE
+/*
+/* Less style that controll different screen sizes based off bootstrap
+/***********************************************************************/
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}
+
+// end of XL
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 1199.98px) {
+
+    // STYLES -------------------------------------------------------------------------------
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 991.98px) {
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 767.98px) {
+
+    // STYLES -------------------------------------------------------------------------------
+    .mobile {
+        display: block !important;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+
+    .sm-hide {
+        display: none;
+    }
+
+    .mobile-text-left {
+        text-align: left !important;
+    }
+
+    .mobile-text-center {
+        text-align: center !important;
+    }
+
+    .mobile-text-right {
+        text-align: right !important;
+    }
+
+    .btn-icon-left {
+        i, svg {
+            margin-right: 8px;
+        }
+    }
+
+    .btn-icon-right {
+        i, svg {
+            margin-left: 8px;
+        }
+    }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    // STYLES -------------------------------------------------------------------------------
+    .xs-hide {
+        display: none;
+    }
+
+    .btn-icon-left {
+        i, svg {
+            margin-right: 5px;
+        }
+    }
+
+    .btn-icon-right {
+        i, svg {
+            margin-left: 5px;
+        }
+    }
+}
